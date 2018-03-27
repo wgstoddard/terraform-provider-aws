@@ -1,0 +1,59 @@
+{ 
+  "template_input_params": [
+    {
+      "name": "aws_amis",
+      "default": {
+        "eu-west-1": "ami-674cbc1e",
+        "us-east-1": "ami-1d4e7a66",
+        "us-west-1": "ami-969ab1f6",
+        "us-west-2": "ami-8803e0f0"
+      },
+      "type": "map",
+      "required": true,
+      "secured": false,
+      "label": "aws_amis",
+      "hidden": false,
+      "immutable": false
+    },
+    {
+      "name": "aws_region",
+      "description": "AWS region to launch servers.",
+      "default": "us-west-2",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "aws_region",
+      "hidden": false,
+      "immutable": false
+    },
+    {
+      "name": "key_name",
+      "description": "Desired name of AWS key pair",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "key_name",
+      "hidden": false,
+      "immutable": false
+    },
+    {
+      "name": "public_key_path",
+      "description": "Path to the SSH public key to be used for authentication.\nEnsure this keypair is added to your local SSH agent so provisioners can\nconnect.\n\nExample: ~/.ssh/terraform.pub\n",
+      "type": "string",
+      "required": true,
+      "secured": false,
+      "label": "public_key_path",
+      "hidden": false,
+      "immutable": false
+    }
+  ],
+  "template_output_params": [
+    {
+      "name": "address",
+      "label": "address",
+      "description": "",
+      "secured": false,
+      "hidden": false
+    }
+  ]
+}
