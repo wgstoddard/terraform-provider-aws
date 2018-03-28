@@ -18,13 +18,35 @@
     {
       "name": "aws_region",
       "description": "AWS region to launch servers.",
-      "default": "us-west-2",
       "type": "string",
       "required": true,
       "secured": false,
       "label": "aws_region",
       "hidden": false,
-      "immutable": false
+      "immutable": false,
+       "options": [
+          {
+              "value": "us-east-1",
+              "label": "US East (N. Virginia)",
+              "default": "true"
+          },
+          {
+              "value": "us-east-2",
+              "label": "US East (Ohio)"
+          },
+          {
+              "value": "us-west-1",
+              "label": "US West (N. California)"
+          },
+          {
+              "value": "us-west-2",
+              "label": "US West (Oregon)"
+          },
+          {
+              "value": "eu-west-1",
+              "label": "Europe"
+          }
+        ]
     },
     {
       "name": "key_name",
