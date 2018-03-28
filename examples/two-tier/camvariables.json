@@ -6,9 +6,9 @@
   "output_groups": [ ],
   "template_input_params": [
     {
-      "name": "public_key_path",
-      "label": "Public Key Path",
-      "description": "Path to the SSH public key to be used for authentication.\r\nEnsure this keypair is added to your local SSH agent so provisioners can\r\nconnect.\r\n\r\nExample: ~/.ssh/terraform.pub",
+      "name": "public_key",
+      "label": "Public Key",
+      "description": "SSH Public Key",
       "type": "string",
       "default": "",
       "validation": "",
