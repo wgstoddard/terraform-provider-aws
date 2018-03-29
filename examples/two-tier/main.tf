@@ -97,9 +97,14 @@ resource "aws_elb" "web" {
   }
 }
 
+# Create temp public key for ssh connection
+resource "tls_private_key" "ssh" {
+  algorithm = "RSA"
+}
+
 resource "aws_key_pair" "auth" {
   key_name   = "${var.key_name}"
-  public_key = "${var.public_key}"
+  public_key = "${tls_private_key.ssh.public_key_openssh}"
 }
 
 resource "aws_instance" "web" {
@@ -109,7 +114,9 @@ resource "aws_instance" "web" {
     # The default username for our AMI
     user = "ubuntu"
 
-    # The connection will use the local SSH agent for authentication.
+    # The connection will use a generated private key for ssh
+    private_key = "${tls_private_key.ssh.private_key_pem}"
+
   }
 
   instance_type = "t2.micro"
